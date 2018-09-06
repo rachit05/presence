@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coding stuff</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas" height="700px" width="1260px"></canvas>
+    <script>
+        let c = document.querySelector('#canvas');
+        let ctx = c.getContext('2d');
+        let isMouseDown = false;
+        let previousCoords = {}
+
+        c.addEventListener('mousedown',(e)=>draw(e))
+        c.addEventListener('mouseup',()=>isMouseDown=false)
+
+        function draw(e){
+
+            if(isMouseDown){
+                let coord = {
+                    x: e.x,
+                    y: e.y
+                }
+                ctx.rect(coord.x,coord.y,10,10)
+                ctx.stroke()
+            }
+        }
+    </script>
+</body>
+</html>
